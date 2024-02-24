@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link type="image/png" sizes="16x16" rel="icon" href="icon.png"><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indovinelli</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('sfondo8_hd.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+
+  h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: white; /* Aggiunto per garantire che il testo sia leggibile */
+  }
+
+  .riddle-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Aggiunto per migliorare la leggibilità del contenuto */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 600px;
+  }
+
+  .riddle-container h2 {
+    color: #333;
+  }
+
+  .riddle-container p {
+    margin-bottom: 10px;
+    font-family: "Verdana", sans-serif;
+  }
+
+  .solution {
+    font-size: 0;
+    transition: font-size 0.2s ease-in-out;
+  }
+
+  .solution.show {
+    font-size: 16px;
+  }
+
+  .solution-toggle {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .solution-toggle:hover {
+    background-color: #0056b3;
+  }
+
+  .solution-toggle.clicked {
+    background-color: #28a745;
+  }
+
+  footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    bottom: 0;
+    width: 100%;
+  }
+
+  .pagination {
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    top: 10px;
+    left: 50%;
+  }
+
+  .pagination a {
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #007bff;
+    margin-right: 5px;
+  }
+
+  .pagination a:first-child {
+    background-color: #0056b3;
+  }
+
+  .pagination a:hover {
+    background-color: #0056b3;
+  }
+
+  .advertisement {
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 999; /* Assicura che la pubblicità sia sopra gli altri elementi */
+  }
+
+  .advertisement_right {
+    right: 20px;
+  }
+
+  .advertisement_left {
+    left: 20px;
+  }
+
+  .advertisement img {
+    max-width: 200px;
+    height: auto;
+  }
+
+
+</style>
+</head>
+<body>
+
+<h1>Indovinelli</h1>
+
+<div class="pagination">
+    <a href="#">1</a>
+    <a href="#">2</a>
+    <a href="#">3</a>
+    <span>....</span>
+    <a href="#">10</a>
+    <a href="#">Next</a>
+</div>
+
+<div class="advertisement advertisement_right">
+    <img src="ad.png">
+</div>
+  
+<div class="advertisement advertisement_left">
+    <img src="ad2.png">
+</div>
+  
+
+<div class="riddle-container">
+  <h2>Indovinello 1:</h2>
+  <p>Sono una parola di cinque lettere, ma se mi togli una lettera, rimango la stessa. Che cosa sono?</p>
+  <button class="solution-toggle" onclick="toggleSolution('solution1', this)">Mostra Soluzione</button>
+  <p class="solution" id="solution1">Sono una posta. Se mi togli una lettera, rimango una posta.</p>
+</div>
+
+<div class="riddle-container">
+  <h2>Indovinello 2:</h2>
+  <p>Un uomo entra in un bar e chiede un bicchiere d’acqua. Il barista prende una pistola e gli punta contro. L’uomo dice “grazie” e se ne va. Perché?</p>
+  <button class="solution-toggle" onclick="toggleSolution('solution2', this)">Mostra Soluzione</button>
+  <p class="solution" id="solution2">L’uomo aveva il singhiozzo. Il barista gli ha puntato la pistola per spaventarlo e farlo smettere. L’uomo ha ringraziato il barista per averlo aiutato.</p>
+</div>
+
+<div class="riddle-container">
+    <h2>Indovinello 3:</h2>
+    <p>Un uomo vive al 12° piano di un grattacielo. Ogni mattina prende l’ascensore fino al piano terra e va al lavoro. Ogni sera torna a casa e prende l’ascensore fino al 6° piano, poi sale le scale fino al 12° piano. Perché?</p>
+    <button class="solution-toggle" onclick="toggleSolution('solution3', this)">Mostra Soluzione</button>
+    <p class="solution" id="solution3">L’uomo è basso e non riesce a raggiungere il pulsante del 12° piano. Può raggiungere solo il 6° piano, poi deve salire le scale. Quando c’è qualcun altro nell’ascensore, può chiedere loro di premere il pulsante del 12° piano per lui.</p>
+</div>
+  
+<div class="riddle-container">
+    <h2>Indovinello 4:</h2>
+    <p>Un uomo entra in una stanza buia e vede una grande scatola di legno. Dentro la scatola ci sono 10 gatti neri e 10 gatti bianchi. L’uomo deve dividere i gatti in due gruppi, in modo che ci sia lo stesso numero di gatti neri e bianchi in ogni gruppo. Come può farlo senza accendere la luce?</p>
+    <button class="solution-toggle" onclick="toggleSolution('solution4', this)">Mostra Soluzione</button>
+    <p class="solution" id="solution4">L’uomo deve dividere i gatti in due gruppi, uno con 10 gatti e l’altro con 10 gatti. Non importa il colore dei gatti, basta che ci siano 10 gatti in ogni gruppo. In questo modo, ci sarà lo stesso numero di gatti neri e bianchi in ogni gruppo, perché la somma dei gatti neri e bianchi è sempre 20. Questo indovinello si basa sul principio matematico che se a + b = c, allora a - b = c - 2b.</p>
+</div>
+
+<div class="riddle-container">
+    <h2>Indovinello 5:</h2>
+    <p>Silvia ha ricevuto una lettera misteriosa che dice:
+        "Se vuoi trovare il tesoro, devi risolvere il seguente enigma.
+        Nicola possiede una macchina rossa, conta il numero di sportelli della macchina e moltiplicalo per due.
+        Infine, aggiungi il numero di ruote della macchina e sottrai il numero di specchietti.
+        Il risultato è il codice che apre il portabagagli, dove si trova il tesoro.
+        Affrettati, hai solo un'ora di tempo!"
+        </p>
+    <button class="solution-toggle" onclick="toggleSolution('solution5', this)">Mostra Soluzione</button>
+    <p class="solution" id="solution5">Il codice è 10. La macchina ha 4 sportelli, quindi 4 x 2 = 8. La macchina ha 4 ruote, quindi 8 + 4 = 12. La macchina ha 2 specchietti, quindi 12 - 2 = 10. Il codice è 10. Silvia quindi puoi aprire il portabagagli.</p>
+</div>
+
+
+
+<footer>
+  <p>Srl-SVF Indovinello Bello Milano - Via degli Estranei, 123 - Tel: 0123456789 - Email: info@indovinello_bello.it</p>
+</footer>
+
+<script>
+function toggleSolution(solutionId, button) {
+  var solution = document.getElementById(solutionId);
+  solution.classList.toggle('show');
+  if (button.classList.contains('clicked')) {
+    button.classList.remove('clicked');
+  } else {
+    button.classList.add('clicked');
+  }
+}
+</script>
+
+</body>
+</html>
